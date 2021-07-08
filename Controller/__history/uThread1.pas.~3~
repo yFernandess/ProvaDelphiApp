@@ -1,0 +1,35 @@
+unit uThread1;
+
+interface
+
+uses
+  System.Classes;
+
+type
+  TThread1 = class(TThread)
+  private
+    FIntervaloThread: Integer;
+  public
+    procedure Execute; override;
+
+  end;
+
+implementation
+
+{ TThread1 }
+
+procedure TThread1.Execute;
+var
+  index: Integer;
+begin
+  inherited;
+
+  for index := 1 to 100 do
+  begin
+    Sleep(FIntervaloThread);
+  end;
+
+
+end;
+
+end.

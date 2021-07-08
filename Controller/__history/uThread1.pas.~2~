@@ -1,0 +1,12 @@
+unit uThread1;
+
+interface
+
+type
+  TThread1 = class(TInterfacedObject, IThread1)
+
+  end;
+
+implementation
+
+end.

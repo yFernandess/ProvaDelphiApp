@@ -1,0 +1,42 @@
+unit uProcessThread;
+
+interface
+
+uses
+  System.Classes, Vcl.ComCtrls;
+
+type
+  TProcessThread = class(TThread)
+  private
+    FIntervaloThread: Integer;
+    FProgressBar: TProgressBar;
+  public
+    procedure Execute; override;
+    constructor Create(pProgressBar: TProgressBar);
+
+  end;
+
+implementation
+
+{ TProcessThread }
+
+constructor TProcessThread.Create(pProgressBar: TProgressBar);
+begin
+  inherited Create(True);
+  FProgressBar := pProgressBar;
+end;
+
+procedure TProcessThread.Execute;
+var
+  index: Integer;
+begin
+  inherited;
+
+  for index := 1 to 100 do
+  begin
+    Sleep(FIntervaloThread);
+    FProgressBar.Position := index;
+  end;
+end;
+
+end.
